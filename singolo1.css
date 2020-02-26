@@ -2,8 +2,6 @@
   font-family: Lato; /* Имя шрифта */
   src: url(assets/Lato-Regular.ttf); /* Путь к файлу со шрифтом */
 }
-
-
 /* Указываем box sizing */
 *,
 *::before,
