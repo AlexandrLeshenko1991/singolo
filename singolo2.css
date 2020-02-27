@@ -217,6 +217,8 @@ h1,h2,h3,h4{
   color: #666d89;
   font-weight: 900;
   text-align: left;
+  white-space: nowrap;
+  overflow-y: hidden;
 }
 
 .card>p{
@@ -236,6 +238,12 @@ h1,h2,h3,h4{
 
 .social-icons>a{
   margin-right: 5px;
+  border-radius: 50%;
+}
+
+.social-icons>a:hover{
+  cursor: pointer;
+  box-shadow: inset 0px 0px 5px 5px rgba(118, 126, 158, 0.2);
 }
 
 
