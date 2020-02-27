@@ -1,0 +1,246 @@
+@font-face {
+  font-family: Lato; /* Имя шрифта */
+  src: url(assets/Lato-Light.ttf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+  font-family: Lato-bold; /* Имя шрифта */
+  src: url(assets/Lato-Black.ttf); /* Путь к файлу со шрифтом */
+}
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+button{
+  background: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline:none;
+}
+
+body{
+  font-family: 'Lato', sans-serif;
+}
+h1,h2,h3,h4{
+  font-family: 'Lato-bold', sans-serif;
+}
+
+.portfolio{
+  max-height: 870px;
+  background-color: #2d303a;
+  border-bottom: 6px solid #323746;
+}
+
+.wrap{
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.portfolio h2{
+  padding-top: 68px;
+  font-size: 30px;
+  line-height: 18px;
+  color: #666d89;
+  font-weight: 900;
+}
+
+.portfolio_description{
+  margin-top: 28px;
+  font-size: 17px;
+  line-height: 30px;
+  color: #767e9e;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+}
+
+.category-bottom{
+  margin-top: 9px;
+}
+.category-bottom button{
+  padding: 0 6px;
+  margin-right: 6px;
+  font-size: 12px;
+  line-height: 21px;
+  color: #767e9e;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+  border-radius: 5px;
+  border: 1px solid #767e9e;
+}
+
+.category-bottom button.active{
+  color: #dedede;
+  border: 1px solid #dedede;
+}
+
+.category-bottom button:hover,
+.category-bottom button:active{
+  cursor: pointer;
+  background-color: rgba(118, 126, 158, 0.3);
+}
+
+.gallery{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 19px;
+  margin-bottom: 66px;
+  max-height: 601px;
+  overflow: hidden;
+}
+
+.gallery figure{
+  margin-bottom: 20px;
+}
+
+.about-us{
+  height: 734px;
+  background-color: #f2f2f2;
+  border-bottom: 6px solid #ffffff;
+}
+
+.about-us h2{
+  padding-top: 70px;
+  font-size: 30px;
+  line-height: 18px;
+  color: #666d89;
+  font-weight: 900;
+  letter-spacing: -0.1px;
+}
+
+.about-us_description{
+  margin-top: 27px;
+  font-size: 18px;
+  line-height: 30px;
+  color: #767e9e;
+  font-weight: 300;
+  letter-spacing: -0.05px;
+}
+
+.our-specialists{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-top: 45px;
+}
+
+.card{
+  width: 30%;
+  min-width: 300px;
+}
+
+.card>figure>img{
+  margin: 0 auto;
+}
+
+.card>h3{
+  margin-top: 18px;
+  font-size: 18px;
+  font-family: "Lato-bold";
+  line-height: 18px;
+  color: #666d89;
+  font-weight: 900;
+  text-align: left;
+}
+
+.card>p{
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 22px;
+  color: #767e9e;
+  font-weight: 400;
+  text-align: left;
+  letter-spacing: -0.1px;
+}
+
+.social-icons{
+  display: flex;
+  margin-top: 20px;
+}
+
+.social-icons>a{
+  margin-right: 5px;
+}
+
+
+@media screen and (min-width: 1024px) {
+  .gallery figure{
+    width: 25%;
+  }
+}
