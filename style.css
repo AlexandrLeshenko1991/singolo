@@ -181,6 +181,7 @@ select {
 .slider_arrow:hover,
 .slider_arrow:active{
   opacity: 1;
+  cursor: pointer;
 }
 .slider_arrow:hover:before,
 .slider_arrow:active:before{
@@ -248,7 +249,7 @@ select {
   line-height: 31px;
   color: #767e9e;
   font-weight: 300;
-  text-align: left;
+  text-align: justify;
   letter-spacing: -0.2px;
 }
 
@@ -276,6 +277,9 @@ select {
 
 .servece_item_info{
   padding-left: 20px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  max-height: 65px;
 }
 
 .servece_item_info h3{
@@ -331,9 +335,10 @@ h1,h2,h3,h4{
 }
 
 .category-bottom{
-  margin-top: 9px;
+  margin-top: 7px;
 }
 .category-bottom button{
+  background: initial;
   padding: 0 6px;
   margin-right: 6px;
   font-size: 12px;
@@ -392,6 +397,7 @@ h1,h2,h3,h4{
   line-height: 30px;
   color: #767e9e;
   font-weight: 300;
+  text-align: justify;
   letter-spacing: -0.05px;
 }
 
@@ -429,13 +435,13 @@ h1,h2,h3,h4{
   line-height: 22px;
   color: #767e9e;
   font-weight: 400;
-  text-align: left;
+  text-align: justify;
   letter-spacing: -0.1px;
 }
 
 .social-icons{
   display: flex;
-  margin-top: 20px;
+  margin-top: 21px;
 }
 
 .social-icons>a{
@@ -467,7 +473,7 @@ h1,h2,h3,h4{
 }
 
 .contact-us_header{
-  padding-top: 67px;
+  padding-top: 68px;
   font-size: 30px;
   line-height: 18px;
   color: #f0d8d9;
@@ -481,7 +487,7 @@ h1,h2,h3,h4{
   line-height: 30px;
   color: #f0d8d9;
   font-weight: 300;
-  letter-spacing: 0px;
+  text-align: justify;
 }
 
 .contact-us-wrapper{
