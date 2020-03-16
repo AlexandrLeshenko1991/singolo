@@ -213,14 +213,9 @@ select {
   justify-content: center;
 }
 
-.slider_content div{
-  margin: 0 38px;
-}
-
 .slider_content div>img{
   margin-top: -7px;
 }
-
 
 .services{
   height: 500px;
@@ -352,6 +347,7 @@ h1,h2,h3,h4{
 
 .category-bottom button.active{
   color: #dedede;
+  outline: none;
   border: 1px solid #dedede;
 }
 
@@ -368,7 +364,7 @@ h1,h2,h3,h4{
   justify-content: space-between;
   margin-top: 19px;
   margin-bottom: 66px;
-  max-height: 601px;
+  max-height: 611px;
   overflow: hidden;
 }
 
@@ -613,6 +609,102 @@ h1,h2,h3,h4{
   line-height: 20px;
   font-weight: 600;
 }
-.form-submit{
+
+.navigation a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.phone-vert,
+.phone-gorizontal{
+  position: relative;
+  margin: 0 38px;
+}
+.phone-vert-img:after{
+  position: absolute;
+  top: 13%;
+  left: 7%;
+  content: "";
+  width: 87%;
+  height: 74%;
+  background: url("./assets/phone-vertical-display.png");
+}
+
+.phone-gorizontal-img:after{
+  position: absolute;
+  top: 3%;
+  left: 13%;
+  content: "";
+  width: 73%;
+  height: 91%;
+  background: url("./assets/phone-horizontal-display.png");
+}
+
+.phone-gorizontal-bg:after{
+  position: absolute;
+  top: 3%;
+  left: 13%;
+  content: "";
+  width: 73%;
+  height: 91%;
+  background: black;
+}
+
+.phone-vert-bg:after{
+  position: absolute;
+  top: 13%;
+  left: 7%;
+  content: "";
+  width: 87%;
+  height: 74%;
+  background: black;
+}
+
+.display_none{
   display: none;
+}
+@keyframes opac {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+.display_active{
+  animation-name: opac;
+  animation-duration: 1s;
+}
+
+.gallery
+
+.border-color-img img{
+  border: 5px solid red;
+}
+
+.modal-wrapper{
+  padding: 50px;
+  position: fixed;
+  z-index: 10000;
+  background: rgba(118, 126, 158, 0.5);
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.modal-content{
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 60vh;
+  overflow: auto;
+  background: #ffffff;
+  margin: 0 auto;
+}
+.modal-close{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  font-size: 34px;
+  right: 0;
+}
+.modal-text{
+  padding: 20px;
+  overflow: auto;
+  width: 100%;
 }
