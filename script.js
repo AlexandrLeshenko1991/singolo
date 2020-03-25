@@ -29,12 +29,16 @@ arrowNext.addEventListener('click',function (event) {
     if(!!active.nextElementSibling){
         active.classList.add('display_none')
         active.classList.remove('display_active')
+        active.classList.remove('display_active_animate_prev')
         active.nextElementSibling.classList.add('display_active')
+        active.nextElementSibling.classList.add('display_active_animate_next')
         active.nextElementSibling.classList.remove('display_none')
     }else {
         active.classList.add('display_none')
         active.classList.remove('display_active')
+        active.classList.remove('display_active_animate_prev')
         sliderContent.firstElementChild.classList.add('display_active')
+        sliderContent.firstElementChild.classList.add('display_active_animate_next')
         sliderContent.firstElementChild.classList.remove('display_none')
     }
 })
@@ -44,12 +48,17 @@ arrowPrev.addEventListener('click',function (event) {
     if(!!active.previousElementSibling){
         active.classList.add('display_none')
         active.classList.remove('display_active')
+        active.classList.remove('display_active_animate_next')
+        active.classList.remove('display_active_animate_prev')
         active.previousElementSibling.classList.add('display_active')
+        active.previousElementSibling.classList.add('display_active_animate_prev')
         active.previousElementSibling.classList.remove('display_none')
     }else {
         active.classList.add('display_none')
+        active.classList.remove('display_active_animate_next')
         active.classList.remove('display_active')
         sliderContent.lastElementChild.classList.add('display_active')
+        sliderContent.lastElementChild.classList.add('display_active_animate_prev')
         sliderContent.lastElementChild.classList.remove('display_none')
     }
 })
@@ -58,15 +67,23 @@ arrowPrev.addEventListener('click',function (event) {
 
 let navigationLinks = document.querySelector('.navigation')
 
+function removeNavActive (elem = null){
+    for (i=0; i<navigationLinks.children.length ;i++){
+        navigationLinks.children[i].classList.remove('active')
+    }
+    if (elem){
+        elem.classList.add('active')
+    }
+}
+
 for (i=0; i<navigationLinks.children.length ;i++){
     if (i === 0 ){navigationLinks.children[i].classList.add('active')}
     navigationLinks.children[i].addEventListener('click',function (e) {
-
-        for (i=0; i<navigationLinks.children.length ;i++){
-            navigationLinks.children[i].classList.remove('active')
-        }
-        history.pushState('', "", `#${e.target.textContent}`);
-        e.currentTarget.classList.add('active')
+        e.preventDefault();
+        removeNavActive(e.currentTarget);
+        let elem = e.target.textContent.toLowerCase()
+        document.querySelector(`#${elem}`).scrollIntoView({behavior: 'smooth' })
+        history.pushState('', "", `#${elem}`);
     })
 }
 
@@ -171,12 +188,88 @@ formSubmitBtn.addEventListener('click', function (e) {
     }
 })
 
+function resetForm() {
+    let form = document.querySelector('#form')
+    form.querySelectorAll('input').forEach(elem=>{
+        elem.value = '';
+    })
+    form.querySelectorAll('textarea').forEach(elem=>{
+        elem.value = '';
+    })
+}
+
+
 function closeModal(){
     document.querySelector('.modal-wrapper').classList.add('display_none')
+    resetForm()
 }
 
 //modal
 let modalCloseBtn = document.querySelector('.modal-close')
 modalCloseBtn.addEventListener('click', function (e) {
     closeModal()
+})
+
+//scroll
+
+function getNavItem(val){
+    let nav = document.querySelector('.navigation')
+    let allLink = nav.querySelectorAll('a')
+    for(let a = 0; a < allLink.length; a++){
+        if(allLink[a].innerText.toLowerCase() === val){
+            return allLink[a].parentNode
+        }
+    }
+}
+
+window.addEventListener('scroll', function() {
+    //document.getElementById('showScroll').innerHTML = pageYOffset + 'px';
+    //console.log(pageYOffset)
+
+    let home = document.querySelector('#home')
+    let services = document.querySelector('#services')
+    let portfolio = document.querySelector('#portfolio')
+    let about = document.querySelector('#about')
+    let contact = document.querySelector('#contact')
+
+    if (pageYOffset <= home.offsetTop + 100 && pageYOffset >= home.offsetTop){
+        removeNavActive(getNavItem('home'))
+    }
+
+    if (pageYOffset <= services.offsetTop + 100 && pageYOffset >= services.offsetTop - 100){
+        removeNavActive(getNavItem('services'))
+    }
+
+    if (pageYOffset <= portfolio.offsetTop + 100 && pageYOffset >= portfolio.offsetTop - 100){
+        removeNavActive(getNavItem('portfolio'))
+    }
+
+    if (pageYOffset <= about.offsetTop + 100 && pageYOffset >= about.offsetTop - 100){
+        removeNavActive(getNavItem('about'))
+    }
+
+    if (pageYOffset <= contact.offsetTop + 100 && pageYOffset >= contact.offsetTop - 100){
+        removeNavActive(getNavItem('contact'))
+    }
+
+});
+
+//menu_mobile
+let btnMenu = document.querySelector('#burger_menu')
+let btnMenuClose = document.querySelector('#burger_menu_close')
+let mobileMenu = document.querySelector('.menu_mobile');
+
+let menuMobile = document.querySelector('.menu_mobile')
+menuMobile.addEventListener('click', function (event) {
+    let target = event.target; // где был клик?
+    if (target != menuMobile) return;
+    mobileMenu.classList.toggle('display_none')
+})
+
+btnMenu.addEventListener('click', function (e) {
+    mobileMenu.classList.toggle('display_none')
+})
+
+btnMenuClose.addEventListener('click', function (e) {
+    mobileMenu.classList.toggle('display_none')
 })

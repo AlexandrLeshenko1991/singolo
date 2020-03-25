@@ -8,10 +8,38 @@
   <link rel="stylesheet" href="./style.css">
   <title>singolo1</title>
 </head>
-<body>
+<body id="home">
+<div class="menu_mobile display_none">
+  <div class="menu_mobile_block">
+    <div class="header_wrap_mobile">
+      <div class="burger_menu" id="burger_menu_close">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="logo">
+        <a href="#">SINGOLO<span>*</span></a>
+      </div>
+    </div>
+    <div class="menu_mobile_block_links">
+      <ul class="navigation">
+        <li class=""><a href="#slider">HOME</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 <div class="wraper">
   <header style="position: sticky;top: 0; z-index: 100">
     <div class="header_wrap">
+      <div class="burger_menu" id="burger_menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <div class="logo">
         <a href="#">SINGOLO<span>*</span></a>
       </div>
@@ -21,12 +49,12 @@
           <li><a href="#services">SERVICES</a></li>
           <li><a href="#portfolio">PORTFOLIO</a></li>
           <li><a href="#about">ABOUT</a></li>
-          <li><a href="#contact-us">CONTACT</a></li>
+          <li><a href="#contact">CONTACT</a></li>
         </ul>
       </nav>
     </div>
   </header>
-  <main>
+  <main >
     <section class="slider" id="slider">
       <div class="slider_arrow arrow-prev"><img src="./assets/chev.svg" alt="arrow"></div>
       <div class="slider_arrow arrow-next"><img src="./assets/chev-r.svg" alt="arrow"></div>
@@ -145,8 +173,6 @@
           <figure class="gallery-item"><img src="assets/s2-i7.png" alt="10"></figure>
           <figure class="gallery-item"><img src="assets/s2-i4.png" alt="11"></figure>
           <figure class="gallery-item"><img src="assets/s2-i1.png" alt="12"></figure>
-          <figure class="gallery-item"><img src="assets/s2-i4.png" alt="11"></figure>
-          <figure class="gallery-item"><img src="assets/s2-i1.png" alt="12"></figure>
         </div>
       </div>
     </section>
@@ -211,7 +237,7 @@
       </div>
     </section>
 
-    <section class="contact-us" id="contact-us">
+    <section class="contact-us" id="contact">
       <div class="wrap">
         <h2 class="contact-us_header">
           Get a Quote
@@ -223,7 +249,7 @@
         </p>
         <div class="contact-us-wrapper">
           <div class="contact-form">
-            <form action="/" method="get" class="form">
+            <form action="/" method="get" class="form" id="form">
               <div class="form-label">
                 <input type="text" name="name" id="name" placeholder="Name (Required)" required>
               </div>
@@ -287,6 +313,7 @@
     </div>
   </footer>
 </div>
+
 <div class="modal-wrapper display_none">
   <div class="modal-content">
     <div class="modal-close">
